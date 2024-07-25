@@ -615,6 +615,7 @@ if getprop ro.vendor.build.fingerprint | grep -iq -e Redmi/merlin; then
 fi
 
 if getprop ro.vendor.build.fingerprint | grep -iq -e Redmi/lancelot -e Redmi/galahad; then
+    setprop debug.renderengine.backend skiaglthreaded
     setprop debug.sf.use_phase_offsets_as_durations 1
     setprop debug.sf.late.sf.duration 27600000
     setprop debug.sf.late.app.duration 20000000
@@ -625,7 +626,6 @@ if getprop ro.vendor.build.fingerprint | grep -iq -e Redmi/lancelot -e Redmi/gal
     setprop debug.sf.hwc.min.duration 17000000
     setprop debug.sf.disable_client_composition_cache 1
     setprop debug.sf.predict_hwc_composition_strategy 0
-    setprop debug.sf.auto_latch_unsignaled 0
     setprop debug.stagefright.c2inputsurface -1
     setprop media.stagefright.thumbnail.prefer_hw_codecs true
     setprop ro.surface_flinger.enable_frame_rate_override false
