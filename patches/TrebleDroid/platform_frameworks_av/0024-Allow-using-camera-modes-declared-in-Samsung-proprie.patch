@@ -1,7 +1,7 @@
-From 8637ccc3797ed7509739ae114c197910c444f151 Mon Sep 17 00:00:00 2001
+From 35fa52182b8641cab12ee81bb05ed26cc0be3532 Mon Sep 17 00:00:00 2001
 From: Pierre-Hugues Husson <phh@phh.me>
 Date: Sat, 10 Feb 2024 09:30:19 -0500
-Subject: [PATCH 24/24] Allow using camera modes declared in Samsung
+Subject: [PATCH 24/26] Allow using camera modes declared in Samsung
  proprietary values
 
 ---
@@ -9,10 +9,10 @@ Subject: [PATCH 24/24] Allow using camera modes declared in Samsung
  1 file changed, 53 insertions(+), 26 deletions(-)
 
 diff --git a/services/camera/libcameraservice/utils/SessionConfigurationUtils.cpp b/services/camera/libcameraservice/utils/SessionConfigurationUtils.cpp
-index 11ef9b7509..bbf3fcb054 100644
+index 40ca276..a2ead4a 100644
 --- a/services/camera/libcameraservice/utils/SessionConfigurationUtils.cpp
 +++ b/services/camera/libcameraservice/utils/SessionConfigurationUtils.cpp
-@@ -168,35 +168,62 @@ bool roundBufferDimensionNearest(int32_t width, int32_t height,
+@@ -170,35 +170,62 @@ bool roundBufferDimensionNearest(int32_t width, int32_t height,
  
      bool isJpegRDataSpace = (dataSpace == static_cast<android_dataspace_t>(
                  ::aidl::android::hardware::graphics::common::Dataspace::JPEG_R));
@@ -102,5 +102,5 @@ index 11ef9b7509..bbf3fcb054 100644
          }
      }
 -- 
-2.34.1
+2.39.2
 

@@ -1,4 +1,4 @@
-From 246d4313bc8f069c7076401c200d38bcddf9edba Mon Sep 17 00:00:00 2001
+From a6f874bfec582c9e6ead0c256a03a09d6d194e7f Mon Sep 17 00:00:00 2001
 From: Pierre-Hugues Husson <phh@phh.me>
 Date: Tue, 16 Jan 2024 10:30:57 -0500
 Subject: [PATCH 23/26] Keep capex when there are vendor apexes
@@ -11,10 +11,10 @@ If there is a vendor apex, enable APEX anyway.
  1 file changed, 12 insertions(+), 2 deletions(-)
 
 diff --git a/init/property_service.cpp b/init/property_service.cpp
-index b2fedebd8..d049df264 100644
+index 25aaf41..d19445c 100644
 --- a/init/property_service.cpp
 +++ b/init/property_service.cpp
-@@ -712,8 +712,18 @@ static bool kernel_supports_capex() {
+@@ -716,8 +716,18 @@ static bool kernel_supports_capex() {
      uname(&buf);
      const char *where = buf.release;
      int a = atoi(where);
@@ -36,5 +36,5 @@ index b2fedebd8..d049df264 100644
  
  /*
 -- 
-2.34.1
+2.39.2
 

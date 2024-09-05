@@ -1,4 +1,4 @@
-From fe5645730f484a0eebed59150c931c8821f6ee34 Mon Sep 17 00:00:00 2001
+From 8e75aafbe84749c866cd6645483b71a64142ec45 Mon Sep 17 00:00:00 2001
 From: Andy CrossGate Yan <GeForce8800Ultra@gmail.com>
 Date: Wed, 8 Dec 2021 07:04:53 +0000
 Subject: [PATCH 1/4] Remove init.vndk-nodef.rc
@@ -11,23 +11,21 @@ Thanks @Kethen for the insight!
 
 Change-Id: I7c14fe5229e953f620bb225fa5c981752d0ac5f9
 ---
- target/product/gsi/Android.mk         | 13 -------------
- target/product/gsi/init.gsi.rc        |  2 --
+ target/product/gsi/Android.mk         | 11 -----------
+ target/product/gsi/init.gsi.rc        |  1 -
  target/product/gsi/init.vndk-nodef.rc |  3 ---
  target/product/gsi_release.mk         |  1 -
- 4 files changed, 19 deletions(-)
+ 4 files changed, 16 deletions(-)
  delete mode 100644 target/product/gsi/init.vndk-nodef.rc
 
 diff --git a/target/product/gsi/Android.mk b/target/product/gsi/Android.mk
-index f348fbb60b..ff8e688b12 100644
+index 36897fe..e5234af 100644
 --- a/target/product/gsi/Android.mk
 +++ b/target/product/gsi/Android.mk
-@@ -278,16 +278,3 @@ LOCAL_SYSTEM_EXT_MODULE := true
- LOCAL_MODULE_RELATIVE_PATH := init
- 
+@@ -155,14 +155,3 @@ LOCAL_MODULE_RELATIVE_PATH := init
  include $(BUILD_PREBUILT)
--
--
+ 
+ 
 -include $(CLEAR_VARS)
 -LOCAL_MODULE := init.vndk-nodef.rc
 -LOCAL_LICENSE_KINDS := SPDX-license-identifier-Apache-2.0
@@ -40,18 +38,17 @@ index f348fbb60b..ff8e688b12 100644
 -
 -include $(BUILD_PREBUILT)
 diff --git a/target/product/gsi/init.gsi.rc b/target/product/gsi/init.gsi.rc
-index 69c8e467be..c6faba78d9 100644
+index 69c8e46..94badc8 100644
 --- a/target/product/gsi/init.gsi.rc
 +++ b/target/product/gsi/init.gsi.rc
-@@ -1,5 +1,3 @@
- #
+@@ -2,4 +2,3 @@
  # Android init script for GSI required initialization
  #
--
+ 
 -import /system/system_ext/etc/gsi/init.vndk-${ro.vndk.version:-nodef}.rc
 diff --git a/target/product/gsi/init.vndk-nodef.rc b/target/product/gsi/init.vndk-nodef.rc
 deleted file mode 100644
-index 1b141a05e7..0000000000
+index 1b141a0..0000000
 --- a/target/product/gsi/init.vndk-nodef.rc
 +++ /dev/null
 @@ -1,3 +0,0 @@
@@ -59,17 +56,17 @@ index 1b141a05e7..0000000000
 -    # Reboot if BOARD_VNDK_VERSION is not defined
 -    exec - root -- /system/bin/reboot bootloader
 diff --git a/target/product/gsi_release.mk b/target/product/gsi_release.mk
-index 2e373663a4..2636a11972 100644
+index da1284e..fdfe239 100644
 --- a/target/product/gsi_release.mk
 +++ b/target/product/gsi_release.mk
-@@ -51,7 +51,6 @@ PRODUCT_SET_DEBUGFS_RESTRICTIONS := false
+@@ -48,7 +48,6 @@ PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
  PRODUCT_PACKAGES += \
      gsi_skip_mount.cfg \
      init.gsi.rc \
 -    init.vndk-nodef.rc \
  
+ 
  # Overlay the GSI specific SystemUI setting
- PRODUCT_PACKAGES += gsi_overlay_systemui
 -- 
-2.34.1
+2.39.2
 

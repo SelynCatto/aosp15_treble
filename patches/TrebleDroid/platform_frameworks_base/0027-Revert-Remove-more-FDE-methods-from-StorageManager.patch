@@ -1,7 +1,7 @@
-From 3503adeb4c3fa88555de054f8837c403325f2a03 Mon Sep 17 00:00:00 2001
+From 22e94d139296cb1e8884db8d7e83b955e78798d1 Mon Sep 17 00:00:00 2001
 From: Andy CrossGate Yan <GeForce8800Ultra@gmail.com>
 Date: Sat, 15 Oct 2022 09:33:56 +0000
-Subject: [PATCH 27/54] Revert "Remove more FDE methods from StorageManager"
+Subject: [PATCH 27/55] Revert "Remove more FDE methods from StorageManager"
 
 This reverts commit bd13f84152449a3ead6fa8604fd31f48c0224676.
 
@@ -12,10 +12,10 @@ Change-Id: Ic394934ec27b1a486c60123130825d44dad73412
  2 files changed, 78 insertions(+)
 
 diff --git a/core/java/android/os/storage/StorageManager.java b/core/java/android/os/storage/StorageManager.java
-index d45a17f7194e..6850e261e6ad 100644
+index 91ad22f51..22622368b 100644
 --- a/core/java/android/os/storage/StorageManager.java
 +++ b/core/java/android/os/storage/StorageManager.java
-@@ -1709,6 +1709,15 @@ public class StorageManager {
+@@ -1711,6 +1711,15 @@ public class StorageManager {
          return false;
      }
  
@@ -31,7 +31,7 @@ index d45a17f7194e..6850e261e6ad 100644
      /** {@hide}
       * Is this device encrypted?
       * <p>
-@@ -1733,6 +1742,71 @@ public class StorageManager {
+@@ -1735,6 +1744,71 @@ public class StorageManager {
          return RoSystemProperties.CRYPTO_FILE_ENCRYPTED;
      }
  
@@ -104,7 +104,7 @@ index d45a17f7194e..6850e261e6ad 100644
      public static boolean hasAdoptable() {
          switch (SystemProperties.get(PROP_ADOPTABLE)) {
 diff --git a/core/java/com/android/internal/os/RoSystemProperties.java b/core/java/com/android/internal/os/RoSystemProperties.java
-index 40d5c4761dff..66288706b0f1 100644
+index 40d5c4761..66288706b 100644
 --- a/core/java/com/android/internal/os/RoSystemProperties.java
 +++ b/core/java/com/android/internal/os/RoSystemProperties.java
 @@ -68,10 +68,14 @@ public class RoSystemProperties {
@@ -123,5 +123,5 @@ index 40d5c4761dff..66288706b0f1 100644
      public static final boolean CONTROL_PRIVAPP_PERMISSIONS_LOG =
              "log".equalsIgnoreCase(CONTROL_PRIVAPP_PERMISSIONS);
 -- 
-2.34.1
+2.39.2
 

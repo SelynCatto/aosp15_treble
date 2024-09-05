@@ -1,7 +1,7 @@
-From d9af5eff09ab05b8c81c52077e1017ef0c381aab Mon Sep 17 00:00:00 2001
+From 38c1bb52ea160752c8dfd885139ca746d519b92f Mon Sep 17 00:00:00 2001
 From: Pierre-Hugues Husson <phh@phh.me>
 Date: Mon, 13 Apr 2020 21:01:16 +0200
-Subject: [PATCH 08/24] There are three SCO devices. Fallback from one to the
+Subject: [PATCH 08/26] There are three SCO devices. Fallback from one to the
  others if needed
 
 Change-Id: I414dcb6b154855c00cb8520b23dc1069827864b2
@@ -10,7 +10,7 @@ Change-Id: I414dcb6b154855c00cb8520b23dc1069827864b2
  1 file changed, 21 insertions(+)
 
 diff --git a/services/audiopolicy/common/managerdefinitions/src/HwModule.cpp b/services/audiopolicy/common/managerdefinitions/src/HwModule.cpp
-index 6696b45f03..3ea185d873 100644
+index 6696b45..3ea185d 100644
 --- a/services/audiopolicy/common/managerdefinitions/src/HwModule.cpp
 +++ b/services/audiopolicy/common/managerdefinitions/src/HwModule.cpp
 @@ -321,6 +321,27 @@ sp<HwModule> HwModuleCollection::getModuleForDeviceType(audio_devices_t type,
@@ -42,5 +42,5 @@ index 6696b45f03..3ea185d873 100644
  }
  
 -- 
-2.34.1
+2.39.2
 

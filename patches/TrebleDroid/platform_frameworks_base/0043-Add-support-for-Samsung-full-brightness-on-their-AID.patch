@@ -1,7 +1,7 @@
-From e89c32558546172d6280cf70b93508491ffbfd00 Mon Sep 17 00:00:00 2001
+From 51597a090a9cc102e19519c986e78245a703d93e Mon Sep 17 00:00:00 2001
 From: Pierre-Hugues Husson <phh@phh.me>
 Date: Sun, 10 Dec 2023 18:04:49 -0500
-Subject: [PATCH 44/54] Add support for Samsung full brightness on their AIDL
+Subject: [PATCH 43/55] Add support for Samsung full brightness on their AIDL
  HAL
 
 ---
@@ -10,13 +10,13 @@ Subject: [PATCH 44/54] Add support for Samsung full brightness on their AIDL
  2 files changed, 44 insertions(+)
 
 diff --git a/services/core/Android.bp b/services/core/Android.bp
-index 7f5bd07cae78..403ba2301413 100644
+index 9c0cb49b8..7b485825c 100644
 --- a/services/core/Android.bp
 +++ b/services/core/Android.bp
-@@ -263,6 +263,10 @@ java_library_static {
-         "vendor.oplus.hardware.biometrics.fingerprint-V2.1-java",
-         "vendor.oppo.hardware.biometrics.fingerprint-V2.1-java",
-         "vendor.xiaomi.hardware.fingerprintextension-V1.0-java",
+@@ -231,6 +231,10 @@ java_library_static {
+         "dreams_flags_lib",
+         "aconfig_new_storage_flags_lib",
+         "powerstats_flags_lib",
 +
 +        //AIDL
 +        "vendor.samsung.hardware.biometrics.fingerprint-V1-java",
@@ -25,7 +25,7 @@ index 7f5bd07cae78..403ba2301413 100644
      javac_shard_size: 50,
      javacflags: [
 diff --git a/services/core/java/com/android/server/lights/LightsService.java b/services/core/java/com/android/server/lights/LightsService.java
-index 67f6932921f6..0379eadfa383 100644
+index 67f693292..0379eadfa 100644
 --- a/services/core/java/com/android/server/lights/LightsService.java
 +++ b/services/core/java/com/android/server/lights/LightsService.java
 @@ -44,8 +44,10 @@ import com.android.internal.util.DumpUtils;
@@ -106,5 +106,5 @@ index 67f6932921f6..0379eadfa383 100644
          mManagerService = new LightsManagerBinderService();
      }
 -- 
-2.34.1
+2.39.2
 
